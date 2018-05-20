@@ -1,0 +1,1 @@
+export type message = {msg:string, type:string};
