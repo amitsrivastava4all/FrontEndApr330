@@ -1,0 +1,51 @@
+<h1 [class]="myclass">Hello Angular {{message}}</h1>
+<button (click)="callMe()">Show </button>
+<div class="red" [hidden]="show">
+    <input [value]="myval" (keyup)="takeValue($event)" type="text" placeholder="Type Your Name">
+    <p [innerHTML]="name"></p>
+
+    <input type="text" #lastname placeholder="Type Last Name Here">
+    <button (click)="print(lastname.value)">Print</button>
+    <input type="text" placeholder="Type Your Message " [(ngModel)]="msg">
+    <br> New Message is {{msg}}
+
+    <ng-template #show1>
+        <h1>this is the if part</h1>
+        <br>
+        <hr> Fruits are
+        <ul>
+            <li *ngFor="let fruit of fruits;let i=index">
+                <strong *ngIf="i>1"> {{i+1}} &nbsp;{{fruit}}</strong>
+                <p *ngIf="i<=1">{{i+1}}&nbsp;{{fruit}}</p>
+
+            </li>
+        </ul>
+    </ng-template>
+    <ng-template #hide1>
+        <h1>This is the Else Part.....</h1>
+
+    </ng-template>
+    <div *ngIf="isValid;then show1 else hide1">here is ignored</div>
+    <button (click)="counter()">Counter </button>
+    <div>
+        <h3>Switch Example</h3>
+        <div [ngSwitch]="count">
+            <h3 *ngSwitchCase="1"><span>One</span></h3>
+            <h3 *ngSwitchCase="2"><span>Two</span></h3>
+            <h3 *ngSwitchCase="3"><span>Three</span></h3>
+
+        </div>
+    </div>
+    <br><br>
+    <input type="text" placeholder="Type To Search" (change)="search($event)">
+    <hr> Items are
+    <ul>
+        <li *ngFor="let item of items">
+            <h3 [ngClass]="{'blue':item.price>=9000,'orange':item.price<9000}">{{item.id}} {{item.name|titlecase}} {{item.price|currency:'INR'}}</h3>
+        </li>
+    </ul>
+    Items are :::::::::{{items|json}}
+    <select (change)="selectedItem($event)">
+      <option *ngFor="let item of items"  [value]="item.name" >{{item.name}}</option>
+    </select> {{"amit"|slice:0:2}}
+</div>
