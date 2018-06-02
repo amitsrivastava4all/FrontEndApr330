@@ -1,0 +1,15 @@
+<h1>I am App Component</h1>
+<child-comp [msg]="title" (passtochild)="callMe($event)"></child-comp>
+<!-- <child-comp [msg]="title" (passtochild)="callMe($event)"></child-comp>
+<child-comp [msg]="title" (passtochild)="callMe($event)"></child-comp> -->
+<hr>
+<p>Child Content is {{child.x}} {{child.y}} {{child.title}}</p>
+
+<button (click)="getServiceData()">Get Service Data</button>
+<p>Data is {{title}}</p>
+<hr>
+<ul>
+    <li *ngFor="let i of childList">
+        {{i.x}} {{i.y}} {{i.title}}
+    </li>
+</ul>
