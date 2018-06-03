@@ -1,0 +1,13 @@
+<p>
+    child works!
+</p>
+<button (click)="callOnButton(search.value)">Call Service</button>
+
+<hr> Images are
+<br>
+<ul>
+    <input type="text" placeholder="Type to Search any image" #search>
+    <li *ngFor="let im of images">
+        <img [src]="im.images.original.url"> {{im.images.original.url}}
+    </li>
+</ul>
